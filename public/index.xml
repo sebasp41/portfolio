@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sebastian Pycior</title>
+    <link>/</link>
+    <description>Recent content on Sebastian Pycior</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 26 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tools</title>
+      <link>/tools/</link>
+      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/</guid>
+      <description>Welcome to the tools page. Below are links to posts that have interactive data tables or Shiny apps.</description>
+    </item>
+    
+    <item>
+      <title>NCAA MB Categorical Analysis</title>
+      <link>/post/ncaa-mb-categorical-analysis/</link>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ncaa-mb-categorical-analysis/</guid>
+      <description>Below is an updating categorical analysis report on American college basketball recruits heading to the 2019 NBA Draft. The report matches 2018-2019 NCAAMB statistics from sports-reference to Aran Smith’s 2019 Big Board: Top 100 Prospects. The report methodology is based on Ed Weiland’s analysis, which I took and retooled just a bit. Here, I first wrote using the analysis at Nylon Calculus for the 2018 NBA Draft class.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Education
+University of Washington, 2009-2013
+Bachelor&amp;rsquo;s of Arts
+Political Science, Mathematics Minor
+When I&amp;rsquo;m not working or watching basketball, I&amp;rsquo;m probably drinking a ton of coffee or watching a good ol&amp;rsquo; British murder mystery with my wife.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>Email: sebasp41@gmail.com
+Based in the Seattle, WA area</description>
+    </item>
+    
+  </channel>
+</rss>

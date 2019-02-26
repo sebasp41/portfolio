@@ -1,0 +1,161 @@
+---
+title: NCAA MB Categorical Analysis
+author: Sebastian Pycior
+date: '2019-02-17'
+slug: ncaa-mb-categorical-analysis
+categories: []
+tags: []
+description: ''
+topics: []
+---
+Below is an updating categorical analysis report on American college basketball recruits heading to the 2019 NBA Draft. The report matches 2018-2019 NCAAMB statistics from [sports-reference](https://www.sports-reference.com/cbb/) to [Aran Smith's 2019 Big Board: Top 100 Prospects](https://www.nbadraft.net/ranking/bigboard). The report methodology is based on [Ed Weiland's analysis](https://fivethirtyeight.com/features/what-to-look-for-in-an-nba-draft-prospect/), which I took and retooled just a bit. [Here](https://fansided.com/2018/06/14/nylon-calculus-nba-draft-categorical-analysis-wingspan-differential/), I first wrote using the analysis at Nylon Calculus for the 2018 NBA Draft class.
+
+***
+
+##Extended Legend
+
+**Position (Pos)** -- The traditional five basketball positions are still used for this analysis, Point Guard, Shooting Guard, Small Forward, Power Forward and Center. 
+
+**Field Goal Attempts (FGA)** -- Each position is graded upon attempting more than 13 field goal attempts per game.
+
+**Two Point Field Goal Percentage (2FG%)** -- Point Guards, Shooting Guards and Small Forwards are expected to make more than 50% of their shots beneath the arc. Power Forwards are expected to make 58%, and Centers are expected to make 60% of their two point shot attempts. 
+
+**Three Point Field Goal Percentage (3FG%)** -- Point Guards, Shooting Guards and Small Forwards are expected to make more than 35% of their shots from beyond the arc. Power Forwards and Centers are expected to make 32.5% of their three point shot attempts. 
+
+**Points (PTS)** -- All positions besides Shooting Guards are expected to be scoring at least 18 points per game. Shooting Guards are expected to be making 20 points per game.
+
+**Assists (AST)** -- Point Guards are expected to be dishing out at least 5 assists per game.
+
+**Steals (STL)** -- Point Guards and Shooting Guards should be averaging 1.2 and 1.3 steals per game, respectively.
+
+**Rebounds (TRB)** -- Power Forwards and Centers are expected to average at least 10 total rebounds per game.
+
+**Blocks (BLK)** -- Centers are expected to average at least 3 blocks per game.
+
+**Rebounds + Steals + Blocks (RSB)** -- Point Guards and Shooting Guards are expected to average at least 6 and 7 combined rebounds, steals and blocks per game, respectively.
+
+**Assists + Steals + Blocks (ASB)** -- Small Forwards are expected to average at least 5 combined assists, steals and blocks per game.
+
+**Steals + Blocks (SB)**  -- Power Forwards are expected to average at least 3.5 combined steals and blocks per game.
+
+**Assists to Turnover Ratio (A:T)**  -- Point Guards and Shooting Guards should be averaging an assist to turnover ratio of at least 1.6 and 1.4 respectively, while all other positions are expected to at least average 0.6 per game.
+
+**Offensive Rating** -- All players, regardless of position, should have at least a 110 Offensive Rating. 
+
+***
+
+#Categorical Red Flag Analysis
+
+ 
+```{r include=FALSE}
+library(DT)
+pg<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fpg2.csv")
+sg<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fsg2.csv")
+sf<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fsf2.csv")
+pf<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fpf2.csv")
+c<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fc2.csv")
+pg <- pg[,-1,drop=FALSE]
+sg <- sg[,-1,drop=FALSE]
+sf <- sf[,-1,drop=FALSE]
+pf <- pf[,-1,drop=FALSE]
+c <- c[,-1,drop=FALSE]
+names(pg)[1:10] = c("Player", "FGA", "2FG%","3FG%", "PTS", "AST","STL","RSB", "A:T", "ORtg")
+names(sg)[1:9] = c("Player", "FGA", "2FG%","3FG%", "PTS","STL","RSB", "A:T", "ORtg")
+names(sf)[1:8] = c("Player", "FGA", "2FG%","3FG%", "PTS", "ASB","A:T", "ORtg")
+names(pf)[1:9] = c("Player", "FGA", "2FG%","3FG%", "PTS","TRB", "SB", "A:T", "ORtg")
+names(c)[1:9] = c("Player", "FGA", "2FG%","3FG%", "PTS", "TRB","BLK", "A:T", "ORtg")
+
+```
+##Point Guards
+```{r echo=FALSE}
+datatable(pg, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "}")))%>%
+formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
+formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
+formatStyle('3FG%',color = styleInterval(c(.34), c('red', 'green')))%>%
+formatStyle('PTS',color = styleInterval(c(17.9), c('red', 'green')))%>%
+formatStyle('AST',color = styleInterval(c(4.9), c('red', 'green')))%>%
+formatStyle('STL',color = styleInterval(c(1.1), c('red', 'green')))%>%
+formatStyle('RSB',color = styleInterval(c(5.9), c('red', 'green')))%>%
+formatStyle('A:T',color = styleInterval(c(1.5), c('red', 'green')))%>%
+formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
+
+```
+
+***
+
+##Shooting Guards
+```{r echo=FALSE}
+datatable(sg, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "}")))%>%
+formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
+formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
+formatStyle('3FG%',color = styleInterval(c(.34), c('red', 'green')))%>%
+formatStyle('PTS',color = styleInterval(c(19.9), c('red', 'green')))%>%
+formatStyle('STL',color = styleInterval(c(1.2), c('red', 'green')))%>%
+formatStyle('RSB',color = styleInterval(c(6.9), c('red', 'green')))%>%
+formatStyle('A:T',color = styleInterval(c(1.3), c('red', 'green')))%>%
+formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
+
+```
+
+***
+
+##Small Forwards
+```{r echo=FALSE}
+datatable(sf, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "}")))%>%
+formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
+formatStyle('PTS',color = styleInterval(c(17.9), c('red', 'green')))%>%
+formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
+formatStyle('3FG%',color = styleInterval(c(.349), c('red', 'green')))%>%
+formatStyle('ASB',color = styleInterval(c(4.9), c('red', 'green')))%>%
+formatStyle('A:T',color = styleInterval(c(.59), c('red', 'green')))%>%
+formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
+
+```
+
+***
+
+##Power Forwards
+```{r echo=FALSE}
+datatable(pf, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "}")))%>%
+formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
+formatStyle('2FG%',color = styleInterval(c(.579), c('red', 'green')))%>%
+formatStyle('3FG%',color = styleInterval(c(.324), c('red', 'green')))%>%
+formatStyle('PTS',color = styleInterval(c(17.9), c('red', 'green')))%>%
+formatStyle('SB',color = styleInterval(c(3.4), c('red', 'green')))%>%
+formatStyle('TRB',color = styleInterval(c(9.9), c('red', 'green')))%>%
+formatStyle('A:T',color = styleInterval(c(.5), c('red', 'green')))%>%
+formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
+
+```
+
+***
+
+##Centers
+```{r echo=FALSE}
+datatable(c, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "}")))%>%
+formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
+formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
+formatStyle('3FG%',color = styleInterval(c(.34), c('red', 'green')))%>%
+formatStyle('PTS',color = styleInterval(c(17.9), c('red', 'green')))%>%
+formatStyle('BLK',color = styleInterval(c(1.1), c('red', 'green')))%>%
+formatStyle('TRB',color = styleInterval(c(9.9), c('red', 'green')))%>%
+formatStyle('A:T',color = styleInterval(c(1.5), c('red', 'green')))%>%
+formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
+
+```
+
