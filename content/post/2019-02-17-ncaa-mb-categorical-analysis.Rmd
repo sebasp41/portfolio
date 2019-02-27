@@ -49,6 +49,7 @@ Below is an updating categorical analysis report on American college basketball 
  
 ```{r include=FALSE}
 library(DT)
+library(tidyverse)
 pg<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fpg2.csv")
 sg<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fsg2.csv")
 sf<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/fsf2.csv")
@@ -70,7 +71,7 @@ names(c)[1:9] = c("Player", "FGA", "2FG%","3FG%", "PTS", "TRB","BLK", "A:T", "OR
 ```{r echo=FALSE}
 datatable(pg, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
     "}")))%>%
 formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
 formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
@@ -88,9 +89,9 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Shooting Guards
 ```{r echo=FALSE}
-datatable(sg, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+datatable(sg, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
     "}")))%>%
 formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
 formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
@@ -107,9 +108,9 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Small Forwards
 ```{r echo=FALSE}
-datatable(sf, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+datatable(sf, rownames = FALSE, filter = 'bottom', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
     "}")))%>%
 formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
 formatStyle('PTS',color = styleInterval(c(17.9), c('red', 'green')))%>%
@@ -125,9 +126,9 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Power Forwards
 ```{r echo=FALSE}
-datatable(pf, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+datatable(pf, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
     "}")))%>%
 formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
 formatStyle('2FG%',color = styleInterval(c(.579), c('red', 'green')))%>%
@@ -144,9 +145,9 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Centers
 ```{r echo=FALSE}
-datatable(c, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+datatable(c, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#0A3637', 'color': '#44A08D'});",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
     "}")))%>%
 formatStyle('FGA',color = styleInterval(c(12.9), c('red', 'green')))%>%
 formatStyle('2FG%',color = styleInterval(c(.49), c('red', 'green')))%>%
