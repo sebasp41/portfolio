@@ -1,0 +1,33 @@
+---
+title: Using VORP to pay college basketball players
+author: Sebastian Pycior
+date: '2019-03-01'
+slug: using-vorp-to-pay-college-basketball-players
+categories: []
+tags: []
+description: ''
+topics: []
+---
+Yup. Here’s the hot take: VORP should be used to pay players in college basketball. The following table shows salaries of every Men's College Basketball Athlete's potential salary based on hypothetical contingencies based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA. 
+
+```{r include=FALSE}
+library(DT)
+library(tidyverse)
+
+vorper<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/ptcombo_rev.csv")
+vorper <- vorper[,-1,drop=FALSE]
+vorper <- vorper[order(-vorper$Salary),] 
+vorper[,'Salary']=round(vorper[,'Salary'],2)
+vorper$Salary<-paste("$",vorper$Salary)
+
+```
+
+
+
+```{r echo=FALSE}
+datatable(vorper, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
+    "}") ))
+```
+
