@@ -10,6 +10,24 @@ topics: []
 ---
 Yup. Here’s the hot take: VORP should be used to pay players in college basketball. The following table shows salaries of every Men's College Basketball Athlete's potential salary based on hypothetical contingencies based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA. 
 
+***
+
+##Legend
+
+**Player** - Player.
+
+**School** - Player's university
+
+**G** - Games
+
+**BPM** - BPM, a variable used as a part of the rawVORP calculation.
+
+**rawVORP** - A calculation based on Daniel Myers' Box Plus/Minus calculation. The formula remains the same, but he expands on the calculation's relation to [college level basketball here](https://www.basketball-reference.com/about/bpm.html#vorp). 
+
+**normVORP** - This is a rescaled version of rawVORP so that all numbers are positive. Players are then ranked and salary is distributed. Staying true to the NBA VORP calculation, a player with a normVORP of 1 is worth twice as much as a player with a normVORP of 0.5.
+
+
+
 ```{r include=FALSE}
 library(DT)
 library(tidyverse)
