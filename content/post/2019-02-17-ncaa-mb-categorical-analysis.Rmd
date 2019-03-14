@@ -1,7 +1,7 @@
 ---
 title: NCAA MB Categorical Analysis
 author: Sebastian Pycior
-date: ''
+date: '2019-03-14'
 slug: ncaa-mb-categorical-analysis
 categories: []
 tags: []
@@ -9,7 +9,6 @@ description: ''
 topics: []
 ---
 Below is an updating categorical analysis report on American college basketball recruits heading to the 2019 NBA Draft. The report matches 2018-2019 NCAAMB statistics from [sports-reference](https://www.sports-reference.com/cbb/) to [Aran Smith's 2019 Big Board: Top 100 Prospects](https://www.nbadraft.net/ranking/bigboard). The report methodology is based on [Ed Weiland's analysis](https://fivethirtyeight.com/features/what-to-look-for-in-an-nba-draft-prospect/), which I took and retooled just a bit. [Here](https://fansided.com/2018/06/14/nylon-calculus-nba-draft-categorical-analysis-wingspan-differential/), I first wrote using the analysis at Nylon Calculus for the 2018 NBA Draft class.
-
 ***
 
 ##Extended Legend

@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>NCAA MB Categorical Analysis</title>
+      <link>/post/ncaa-mb-categorical-analysis/</link>
+      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ncaa-mb-categorical-analysis/</guid>
+      <description>Below is an updating categorical analysis report on American college basketball recruits heading to the 2019 NBA Draft. The report matches 2018-2019 NCAAMB statistics from sports-reference to Aran Smith’s 2019 Big Board: Top 100 Prospects. The report methodology is based on Ed Weiland’s analysis, which I took and retooled just a bit. Here, I first wrote using the analysis at Nylon Calculus for the 2018 NBA Draft class.</description>
+    </item>
+    
+    <item>
       <title>Using VORP to pay college basketball players</title>
       <link>/post/using-vorp-to-pay-college-basketball-players/</link>
-      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/using-vorp-to-pay-college-basketball-players/</guid>
       <description>Yup. Here’s the hot take: VORP should be used to pay players in college basketball. The following table shows salaries of every Men’s College Basketball Athlete’s potential salary based on hypothetical contingencies based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA.
@@ -32,7 +41,8 @@ BPM - BPM, a variable used as a part of the rawVORP calculation.</description>
       
       <guid>/tools/</guid>
       <description>Welcome to the tools page. Below are links to posts that have interactive data tables or Shiny apps.
-NCAA MB Categorical Analysis Using VORP to pay Men&amp;rsquo;s College Basketball athletes</description>
+NCAA MB Categorical Analysis
+Using VORP to pay Men&amp;rsquo;s College Basketball athletes</description>
     </item>
     
     <item>
@@ -56,15 +66,6 @@ When I&amp;rsquo;m not working or watching basketball, I&amp;rsquo;m probably dr
       <guid>/contact/</guid>
       <description>Email: sebasp41@gmail.com
 Based in the Seattle, WA area</description>
-    </item>
-    
-    <item>
-      <title>NCAA MB Categorical Analysis</title>
-      <link>/post/ncaa-mb-categorical-analysis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/ncaa-mb-categorical-analysis/</guid>
-      <description>Below is an updating categorical analysis report on American college basketball recruits heading to the 2019 NBA Draft. The report matches 2018-2019 NCAAMB statistics from sports-reference to Aran Smith’s 2019 Big Board: Top 100 Prospects. The report methodology is based on Ed Weiland’s analysis, which I took and retooled just a bit. Here, I first wrote using the analysis at Nylon Calculus for the 2018 NBA Draft class.</description>
     </item>
     
   </channel>
