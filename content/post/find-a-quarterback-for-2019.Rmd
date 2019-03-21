@@ -1,0 +1,164 @@
+---
+title: Find a quarterback for 2019
+author: Sebastian Pycior
+date: '2019-03-14'
+slug: find-a-quarterback-for-2019
+categories: []
+tags: []
+description: ''
+topics: []
+---
+
+Haven't you heard? The NFL *cough* owners and bad management *cough* is terrible at drafting the right quarterback. My advice? Don't overthink it. 
+
+Average yards per pass attempts and qb rate in a quarterbacks collegiate career should be enough to show everyone which prospects *should be good enough for NFL development.* Below, I'm trying to stay away from claiming who's the best and instead am trying to show that thinking quarterbacks shouldn't be too complicated. 
+
+College career data from [sports-reference.com/cfb/](https://www.sports-reference.com/cfb/). Data goes back to 2000. 
+
+```{r include=FALSE}
+library(ggiraph)
+library(ggplot2)
+library(ggrepel)
+library(hrbrthemes)
+college1<-read.csv("/Users/sebastianpycior/nfl_qb_draft/college1.csv")
+collnfl<-read.csv("/Users/sebastianpycior/nfl_qb_draft/collnfl.csv")
+colldraft<-read.csv("/Users/sebastianpycior/nfl_qb_draft/colldraft.csv")
+```
+
+First, I needed a fairly wide-ranging criteria to determine what it meant to be a "successful NFL quarterback." I'm not totally sure of when I heard this, but some NFL-head had talked about knowing what you had in a quarterback after about 16 starts. Instead, I sorted the data I needed from sports-reference to ask for players who played in at least 32 games and had attempted at least 50 career pass attempts. 
+
+It's a very crude cutoff and pretty subjective, but I don't really want to evaluate any farther than Matt Leinart. He had a good enough run in the NFL to warrant a type of generalized use of the term: "success."
+
+```{r echo=FALSE, warning=FALSE}
+
+ggplot(NULL)+
+  geom_point(data=college1,aes(college1$Rate,
+                               college1$YdsPerAtt), alpha = 1/10)+
+  geom_point(data=collnfl, aes(collnfl$Rate, 
+                               collnfl$YdsPerAtt),
+             color="#00d8b1")+
+  geom_text_repel(data=collnfl,aes(collnfl$Rate,
+                                   collnfl$YdsPerAtt,
+                                   label=Player),
+                  segment.alpha = 1/2,
+                  segment.color = "#00d8b1")+
+  labs(title="Successful NFL QB's in college",
+       x="College QB Rate",
+       y="College Passing Yards per Attempt",
+       caption="")+
+  xlim(100,180)+
+  theme_ipsum(base_size = 12,
+              plot_title_size = 16,
+              axis_title_size = 12)
+```
+
+Looks a little insane right? The above graphic plots all of the "successful" NFL quarterbacks and plots their collegiate average yards per attempt against their qb rate. Every single one of the gray, faded dots are *all of the college quarterbacks* drafted that either ended being unsuccessful, or were lazily missed by NFL teams. 
+
+Coulda, woulda, shoulda just been patient and developed. But no. 
+
+```{r echo=FALSE, warning=FALSE}
+cgg=ggplot(NULL)+
+  geom_point(data=college1,aes(college1$Rate,
+                               college1$YdsPerAtt), alpha = 1/20)+
+  geom_point_interactive(data=collnfl, 
+                         mapping = aes(x=collnfl$Rate, 
+                               y=collnfl$YdsPerAtt,
+                               color="Successful NFL QBs",
+                               tooltip = Player,
+                               data_id = Player))+
+  geom_point_interactive(data=colldraft,
+                         mapping = aes(x=colldraft$Rate, 
+                                  y=colldraft$YdsPerAtt,
+                                  color="2019 Prospects",
+                                  tooltip = Player,
+                                  colldraft = Player))+
+  labs(title ="Successful NFL QB's in college",
+       colour="Quarterbacks",
+       x="College QB Rate",
+       y="College Passing Yards per Attempt",
+       caption="Hover over colored dots to see name of quarterback, @Sebasp41")+
+  theme_ipsum(base_size = 12,
+              plot_title_size = 16,
+              axis_title_size = 12)
+
+girafe(ggobj = cgg)
+```
+
+At this point, you might be able to get a sense of what are in the graph tends to produce NFL quarterbacks.
+
+```{r echo=FALSE, warning=FALSE}
+ggplot(NULL)+
+  geom_point(data=colldraft, aes(colldraft$Rate, colldraft$YdsPerAtt))+
+  annotate("rect", xmin = 140, xmax = 160, ymin = 7.5, ymax = 8.5, color = "blue",
+           alpha = .05)+
+  geom_density_2d(data=collnfl,aes(collnfl$Rate, collnfl$YdsPerAtt, alpha=1/13), color = "#00d8b1", show.legend = NULL)+
+  geom_text_repel(data=colldraft,aes(colldraft$Rate, colldraft$YdsPerAtt, label=Player),
+                  segment.alpha = 1/6,
+                  segment.color = "black")+
+  labs(title="Successful NFL QB density plot with 2019 QB Prospects",
+       x="College QB Rate",
+       y="College Passing Yards per Attempt",
+       caption="")+
+  theme_ipsum(base_size = 12,
+              plot_title_size = 16,
+              axis_title_size = 12)
+```
+
+In short, the blue square is where you want to be when evaluating some of these quarterbacks. These prospects need to have been good enough to average at least 7.5 yards per attempt. In tomorrow's NFL I wouldn't be surprised if that demand actually increases to center around 8 or even 9 yards per game. 
+
+Near Haskins and Grier in the upper right, there seems to be another quarterback hotspot. This spot hasn't fully developed quite yet, but this area has an interesting crop of successful quarterbacks that have largely been battling injuries. Sam Bradford, Marcus Mariota, and Andrew Luck are the most notable. Less noteworthy players like Tim Tebow stunt the desirability of picking somemone from this spot. 
+
+However, maybe Tebow was before his time. Scouts and armchair analysts have derided qb intelligence, mechanics, or poor offensive line development as to why a lot of these quarterbacks fail. 
+
+Why that may be the case, some thoughts:
+
+1. Intelligence: we demand quarterbacks to be able to read through so many progressions. Why? The longer a quarterback sits in the pocket looking, the higher likelihood of being sacked. And while somebody like Tom Brady *could* last longer than 2.5 seconds trying to find the perfect throw downfield, that's not the smart thing to do. [Tom Brady can read, but it's not smart to make him read. ](https://nextgenstats.nfl.com/stats/passing/2018/all)
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">The last piece of this: holding the ball generates valuable long plays to TE/WRs but also incurs a substantial risk of getting sacked <a href="https://t.co/HLaYNUjXKa">pic.twitter.com/HLaYNUjXKa</a></p>&mdash; Ben Baldwin (@benbbaldwin) <a href="https://twitter.com/benbbaldwin/status/1106649295867076621?ref_src=twsrc%5Etfw">March 15, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+2. Mechanics: just needs to be good enough to get the ball out quick honestly. But, it's still important to note that just a few guys like Jimmy G or Cam Newton can get away with tossing the rock without proper planting of the feet, etc. etc. 
+
+3. Poor offensive line: HA. What's an offensive line if the quarterback is getting the ball out quickly. 
+
+
+So I'd therefore I have a draftboard based on tiers. 
+
+First tier: 
+
+- Murray, Haskins, and Grier. 
+
+Second tier: 
+
+- Rypien, McSorley, Stidham, Hansen, Stockstill, Ford, McMariyon and [ehhh Lock](https://www.youtube.com/watch?v=FMZEx-9n9p4).
+
+Third tier: 
+
+- Everyone else, based on context. 
+
+Contextual thoughts: 
+
+- This year, I'd lean towards having all quarterbacks in any tier to sit out their first year, to be clear.
+
+- Browning was on pace to be a stud until his shoulder surgery.
+
+- Why Grier love? The dude looks impressive from a mechanics standpoint. Every stepback is in rhythm with the rest of his offense, and his anticipation to adjust is a true site to behold. [This video ](https://www.youtube.com/watch?v=5YyZWu_npIw) does an excellent job diving into Grier's ability. Watching him reminds me a lot of Drew Brees or Andrew Luck. Brees and Luck both employ the "athletic squat" on every dropback, unlike the statue-esque ways Big Ben or Cam Newton dropback.
+
+- Included Justin Herbert for show. He is correctly sitting out the draft to get another year of reps in. As great as he's been at the collegiate level, it'd be important for him to sit a year had he been drafted now. He could be a day one starter next year. 
+
+- College Tom Brady and Drew Brees won't show up inside the square, but Peyton Manning's collegiate career is smack dab in the middle. Each of those players spent 4 seasons in college. 
+
+- Kevin Kolb was a damn good college qb, with his pro career getting unraveled by concussions. John Skelton is an example of a quarterback that saw immense improvement over the course of his playing career. His senior season at Fordham boasted rate and average yards per attempt numbers in the blue square region. That being said, it shouldn't be too much of a surprise as to why some of these nobodies break through from time to time. Many of these nobodies already proved their abilities in college. 
+
+- Johnny Manziel could've benefited from sitting out a year. He could be an example of maybe-he-was-too-good-in-college that it doesn't really translate to the NFL. His college stats have him sitting right next to Kyler Murray in the graphs above. 
+
+- In last year's 2018 draft, this "model" would favor:
+    
+
+
+
+
+
+
+I'd recommend listening to the latest qb stories from the dual-threat podcasts by Ryen Russillo, especially Danny Kannell's story. In it, he describes important psychological attributes that go into playing the quarterback position, namely confidence. Increased confidence comes from available time to learn a certain playbook. This needed time is why stability is paramount to a quarterback's ability to succeed in the NFL. 

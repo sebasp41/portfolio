@@ -8,13 +8,16 @@ tags: []
 description: ''
 topics: []
 ---
-Yup. Here’s the hot take: VORP should be used to pay players in college basketball. The following table shows salaries of every Men's College Basketball Athlete's potential salary based on hypothetical contingencies based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA. 
+Here’s the hot take: VORP should be used to pay players in college basketball, or at least be the first steps towards achieving some kind of salary distribution system for college hoops. The following table shows salaries of every Men's College Basketball Athlete's potential salary based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA. 
+
 
 ***
 
 ##Legend
 
-**Player** - Player.
+Data Source: Sports-Reference.com
+
+**Player** - Player
 
 **School** - Player's university
 
@@ -36,16 +39,15 @@ vorper<-read.csv("/Users/sebastianpycior/sebasportfolio/content/post/ptcombo_rev
 vorper <- vorper[,-1,drop=FALSE]
 vorper <- vorper[order(-vorper$Salary),] 
 vorper[,'Salary']=round(vorper[,'Salary'],2)
-vorper$Salary<-paste("$",vorper$Salary)
 
 ```
 
 
 
 ```{r echo=FALSE}
-datatable(vorper, rownames = FALSE, filter = 'bottom',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
+datatable(vorper, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE, initComplete = JS(
     "function(settings, json) {",
-    "$(this.api().table().header()).css({'background-color': '#44A08D', 'color':'#FAFFFF' });",
+    "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}") ))
 ```
 
