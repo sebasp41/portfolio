@@ -37,11 +37,6 @@ ggplot(NULL)+
   geom_point(data=collnfl, aes(collnfl$Rate, 
                                collnfl$YdsPerAtt),
              color="#00d8b1")+
-  geom_text_repel(data=collnfl,aes(collnfl$Rate,
-                                   collnfl$YdsPerAtt,
-                                   label=Player),
-                  segment.alpha = 1/2,
-                  segment.color = "#00d8b1")+
   labs(title="Successful NFL QB's in college",
        x="College QB Rate",
        y="College Passing Yards per Attempt",
@@ -72,6 +67,7 @@ cgg=ggplot(NULL)+
                                   color="2019 Prospects",
                                   tooltip = Player,
                                   colldraft = Player))+
+  scale_x_continuous(limits = c(115, 185))+
   labs(title ="Successful NFL QB's in college",
        colour="Quarterbacks",
        x="College QB Rate",
@@ -151,14 +147,22 @@ Contextual thoughts:
 
 - Kevin Kolb was a damn good college qb, with his pro career getting unraveled by concussions. John Skelton is an example of a quarterback that saw immense improvement over the course of his playing career. His senior season at Fordham boasted rate and average yards per attempt numbers in the blue square region. That being said, it shouldn't be too much of a surprise as to why some of these nobodies break through from time to time. Many of these nobodies already proved their abilities in college. 
 
-- Johnny Manziel could've benefited from sitting out a year. He could be an example of maybe-he-was-too-good-in-college that it doesn't really translate to the NFL. His college stats have him sitting right next to Kyler Murray in the graphs above. 
-
-- In last year's 2018 draft, this "model" would favor:
-    
+- Johnny Manziel could've benefited from sitting out a year. He could be an example of maybe-he-was-too-good-in-college that it doesn't really translate to the NFL. His college stats have him sitting right next to Kyler Murray in the graphs above.
 
 
+I'd recommend listening to the latest qb stories from the dual-threat podcasts by Ryen Russillo, especially Danny Kannell's story. In it, he describes important psychological attributes that go into playing the quarterback position, namely confidence. Increased confidence comes from available time to learn a certain playbook. This needed time is why stability is paramount to a quarterback's ability to succeed in the NFL.
 
 
+That being said here's my mock draft:
 
+1. Arizona Cardinals - Coach already has a connection with a former player in Kyler Murray.
 
-I'd recommend listening to the latest qb stories from the dual-threat podcasts by Ryen Russillo, especially Danny Kannell's story. In it, he describes important psychological attributes that go into playing the quarterback position, namely confidence. Increased confidence comes from available time to learn a certain playbook. This needed time is why stability is paramount to a quarterback's ability to succeed in the NFL. 
+2. San Francisco 49ers - Groom Will Grier behind Jimmy G., pronto What if Jimmy G. gets hurt again?
+
+3. New York Jets - Can't draft Herbert, so either take a break from drafting a QB or take **Stidham.**
+
+4. Oakland Raiders - Brett Rypien. Perfect backup to Murray (and in my opinion, will end up being just as great in his career).
+
+5. Tampa Bay Buccaneers - Dwayne Haskins.
+
+Yay first 5 picks should be quarterbacks. That's an explanation for another day.

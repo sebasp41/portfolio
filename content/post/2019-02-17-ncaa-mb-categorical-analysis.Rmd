@@ -68,7 +68,7 @@ names(c)[1:9] = c("Player", "FGA", "2FG%","3FG%", "PTS", "TRB","BLK", "A:T", "OR
 ```
 ##Point Guards
 ```{r echo=FALSE}
-datatable(pg, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+datatable(pg, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 20, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}")))%>%
@@ -88,7 +88,7 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Shooting Guards
 ```{r echo=FALSE}
-datatable(sg, rownames = FALSE, filter = 'top', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+datatable(sg, rownames = FALSE, filter = 'top', class = 'cell-border compact', options = list(pageLength = 20, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}")))%>%
@@ -107,7 +107,7 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Small Forwards
 ```{r echo=FALSE}
-datatable(sf, rownames = FALSE, filter = 'top', class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+datatable(sf, rownames = FALSE, filter = 'top', class = 'cell-border compact', options = list(pageLength = 20, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}")))%>%
@@ -125,7 +125,7 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Power Forwards
 ```{r echo=FALSE}
-datatable(pf, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+datatable(pf, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 20, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}")))%>%
@@ -144,7 +144,7 @@ formatStyle('ORtg',color = styleInterval(c(109), c('red', 'green')))
 
 ##Centers
 ```{r echo=FALSE}
-datatable(c, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 5, autoWidth = TRUE , initComplete = JS(
+datatable(c, rownames = FALSE, filter = 'top',class = 'cell-border compact', options = list(pageLength = 20, autoWidth = TRUE , initComplete = JS(
     "function(settings, json) {",
     "$(this.api().table().header()).css({'background-color': '#ffffff', 'color':'#000' });",
     "}")))%>%
