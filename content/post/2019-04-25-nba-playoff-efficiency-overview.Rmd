@@ -8,6 +8,10 @@ tags: []
 description: ''
 topics: []
 ---
+
+
+
+
 ```{r include=FALSE}
 library(ggiraphExtra)
 library(ggiraph)
@@ -25,15 +29,7 @@ total_1_po_only_currd<-read.csv("/Users/sebastianpycior/sebasportfolio/content/p
 total_1_po_only$tooltip <- c(paste0("Team = ", total_1_po_only$TeamSeason, "\n SODD = ", round(total_1_po_only$Off_Deff_Diff, digits = 2)))
 tooltip_css <- "background-color:white;font-style:normal;padding:10px;border-radius:10px 20px 10px 20px;"
 ```
-Welcome, below is a graph putting 2018-19 teams' regular season SODD (offensive efficiency minus defensive efficiency), and plots them against historical belligerents. This isn't meant to be a sort of end-all-be-all analysis, but it does serve as an interesting insight to which team might be able to win the NBA title. For example, I wouldn't get hopes up over a team with a SODD below 5. In fact, a team hasn't won the NBA title with SODD below the mean line since the 2015-16 Cleveland Cavaliers led by LeBron James. 
-
-That being said, as of right now we're left with four true contenders in respect to SODD:
-- Milwaukee Bucks
-- Golden State Warriors
-- Toronto Raptors
-- Boston Celtics
-
-The Utah Jazz posted a stronger SODD, but were eliminated by the Houston Rockets in round 1. 
+Efficiency data [available here on ESPN.](http://www.espn.com/nba/hollinger/teamstats).
 
 ```{r echo=FALSE}
 g<-ggplot(total_1_po_only, aes(total_1_po_only$Off_Deff_Diff,total_1_po_only$PlayoffGames)) + 
