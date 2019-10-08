@@ -15,3 +15,9 @@ Bachelor's of Arts
 Political Science, Mathematics Minor  
 
 When I'm not working or watching basketball, I'm probably drinking a ton of coffee or watching a good ol' British murder mystery with my wife. I also own a dog named Penny, a yellow lab. We hike, play and eat with her. 
+
+I've recently taken up a Statistics course in order to get into a respective Master's program.
+
+**Nylon**
+
+Check out some of my basketball analysis [here at Nylon Calculus](https://fansided.com/author/spycior/). Most of my work there involves looking at NBA trends and using basic regression analysis to make arguments about players, teams, and even coaches. I use basketball in order to help me learn about stats and R!
