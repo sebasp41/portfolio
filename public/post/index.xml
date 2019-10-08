@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>NBA Playoff Efficiency Overview</title>
-      <link>/post/nba-playoff-efficiency-overview/</link>
-      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/nba-playoff-efficiency-overview/</guid>
-      <description>Welcome, below is a graph putting 2018-19 teams’ regular season SODD (offensive efficiency minus defensive efficiency), and plots them against historical belligerents. This isn’t meant to be a sort of end-all-be-all analysis, but it does serve as an interesting insight to which team might be able to win the NBA title. For example, I wouldn’t get hopes up over a team with a SODD below 5.</description>
-    </item>
     
     <item>
       <title>Find a quarterback for 2019</title>
@@ -47,7 +38,8 @@ Average yards per pass attempts and qb rate in a quarterbacks collegiate career 
       
       <guid>/post/using-vorp-to-pay-college-basketball-players/</guid>
       <description>VORP should be used to pay players in college basketball, or at least be the first steps towards achieving some kind of salary distribution system for college hoops. The following table shows salaries of every Men’s College Basketball Athlete’s potential salary based on the VORP metric and a NBA based unionization agreement between college athletes and the NCAA.
-Legend Data Source: Sports-Reference.com</description>
+##Legend
+Data Source: Sports-Reference.com</description>
     </item>
     
   </channel>
