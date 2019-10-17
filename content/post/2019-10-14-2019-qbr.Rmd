@@ -1,0 +1,81 @@
+---
+title: 2019 QBR
+author: Sebastian Pycior
+date: '2019-10-14'
+slug: 2019-qbr
+categories: []
+tags: []
+description: ''
+topics: []
+---
+**K-Means Clustering to find replacement level QBs by year**
+```{r, include=FALSE}
+library(anytime)
+
+qbr<-read.csv("/Users/sebastianpycior/nfl_qb_draft/qbr.csv")
+
+qbvar <- names(qbr) %in% c("RK")
+qbr <- qbr[!qbvar]
+qbr <- qbr[ which(qbr$PLAYER!='PLAYER'), ]
+
+qbr$PTS.ADDED<-as.numeric(levels(qbr$PTS.ADDED))[qbr$PTS.ADDED]
+qbr$PASS<-as.numeric(levels(qbr$PASS))[qbr$PASS]
+qbr$RUN<-as.numeric(levels(qbr$RUN))[qbr$RUN]
+qbr$PENALTY<-as.numeric(levels(qbr$PENALTY))[qbr$PENALTY]
+qbr$TOTAL.EPA<-as.numeric(levels(qbr$TOTAL.EPA))[qbr$TOTAL.EPA]
+qbr$QB.PLAYS<-as.numeric(levels(qbr$QB.PLAYS))[qbr$QB.PLAYS]
+qbr$RAW.QBR<-as.numeric(levels(qbr$RAW.QBR))[qbr$RAW.QBR]
+qbr$TOTAL.QBR<-as.numeric(levels(qbr$TOTAL.QBR))[qbr$TOTAL.QBR]
+
+qbr$YEAR <-  anydate(qbr$YEAR)
+
+```
+In what has been an exilerating start to the NFL seasons, a ton of fans have already been calling for their starting QB's head. In some cases, as we'll see below, this is a righteous feeling to have simply because the QB position is the absolute most important position in football. 
+
+I'm personally hellbent on QBs. Even if a former star is aging and not quite up to it (like perhaps Aaron Rodgers), or a rookie that is being kept around for their money and "future potential" (like Mitch Trubisky), then management should think fast and cut.
+
+Of course, there are a plethora of other factors that contribute to keeping a stagnant QB like those that I alluded to above. Money, power, politics are as old as the moon in the NFL, and getting rid of a QB has proven to be tricky for some football teams.
+
+That being said, I wanted to simply overview QBR since 2006 and try to determine where there exists a "replacement" line. I want to avoid coming up with a valuation or "new stat" because football has so many moving parts. Stats like DVOA, EPA, and perhaps ANY/A can also contribute to a similar evaluation like this. 
+
+```{r, echo=FALSE}
+
+shinyApp(
+ui=pageWithSidebar(
+  headerPanel('QBR k-means clustering'),
+  sidebarPanel(
+    selectInput('year', 'Year', ""),
+    selectInput('ycol', 'Dependent Variable', names(qbr), selected=names(qbr)[[9]]),
+    radioButtons('clusters', label = h3("K"),choices = list("3" = 3, "5" = 5), selected = 3)
+  ),
+  mainPanel(
+    plotOutput('plot1')
+  )
+),
+server=function(input, output, session) {
+
+  # Combine the selected variables into a new data frame
+  selectedData <- reactive({
+    qbr[, c(input$year, input$ycol)]
+  })
+
+  clusters <- reactive({
+    kmeans(selectedData(), input$clusters)
+  })
+
+  output$plot1 <- renderPlot({
+    palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00"))
+    par(mar = c(5.1, 4.1, 0, 1))
+    plot(selectedData(),
+         col = clusters()$cluster,
+         pch = 20, cex = 3)
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+  })
+
+})
+```
+
+
+
+
+
