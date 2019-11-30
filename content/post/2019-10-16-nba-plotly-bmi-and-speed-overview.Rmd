@@ -29,9 +29,4 @@ Purple means: <span style="color:purple">chunky, but no pushover</span>.
 
 Red means: <span style="color:red">IDK, mostly meh and bad but some sleepers (like Barton)</span>.
 
-
-violets are <span style="color:blue">blue</span>.
-
-
-
 <iframe src="https://public.tableau.com/views/dpipm_bmi/BMIvs_DPIPM?:display_count=y&:origin=viz_share_link:showVizHome=no&:embed=true" width="735" height="520"></iframe>
