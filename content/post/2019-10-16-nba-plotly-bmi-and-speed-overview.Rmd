@@ -1,11 +1,11 @@
 ---
-title: NBA - Plotly BMI and DPIPM Overview
-author: Sebastian Pycior
+title: "NBA - Plotly BMI and DPIPM Overview"
+author: "Sebastian Pycior"
 date: '2019-11-29'
-slug: nba-plotly-bmi-and-dpipm-overview
-categories: []
-tags: []
 description: ''
+slug: nba-plotly-bmi-and-dpipm-overview
+tags: []
+categories: []
 topics: []
 ---
 
@@ -13,6 +13,25 @@ Basketball, size and defense. This season especially, I felt it important to ana
 
 Working on a writeup for my analysis soon. But for now, I've included a Tableau visualization for players' respective BMI vs. DPIPM grouped by a k-means cluster. Tableau k-means methods can be [found here](https://help.tableau.com/current/pro/desktop/en-us/clustering.htm). 
 
+In short, what would the colors mean... or what could each colo represent about a player's size and performance on defense?
 
-<iframe src="https://public.tableau.com/views/dpipm_bmi/BMIvs_DPIPM?:display_count=y&publish=yes&:origin=viz_share_link"
- width="645" height="955"></iframe>
+From the point of view of a player dribbling the ball: 
+
+Brown means: <span style="color:brown">dude's huge, I should stay away</span>. 
+
+Pink means: <span style="color:pink">dude moves like molasses, because his diet is mostly comprised of molasses</span>.
+
+Orange means: <span style="color:orange">soft</span>.
+
+Blue means: <span style="color:blue">middle of the road</span>.
+
+Purple means: <span style="color:purple">chunky, but no pushover</span>.
+
+Red means: <span style="color:red">IDK, mostly meh and bad but some sleepers (like Barton)</span>.
+
+
+violets are <span style="color:blue">blue</span>.
+
+
+
+<iframe src="https://public.tableau.com/views/dpipm_bmi/BMIvs_DPIPM?:display_count=y&:origin=viz_share_link:showVizHome=no&:embed=true" width="735" height="520"></iframe>
