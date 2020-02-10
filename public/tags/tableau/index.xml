@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tableau on Sebastian Pycior</title>
+    <link>/tags/tableau/</link>
+    <description>Recent content in Tableau on Sebastian Pycior</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/tableau/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tableau Viz - Washington Post Police Shootings</title>
+      <link>/post/washington-post-police-shootings/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/washington-post-police-shootings/</guid>
+      <description>This Tableau visualization using the database compiled by the Washington Post. More on the WaPo data here:
+https://www.washingtonpost.com/graphics/2019/national/police-shootings-2019/
+I don’t have any particular interest in police fatalities, nor have I ever really studied the matter. I originally wanted to just find data that felt alive and held significance. When I came across the WaPo fatal force data, I definitely felt that there was important significance to the dataset.
+In 2019, over a thousand American citizens fell to brutal force by the police.</description>
+    </item>
+    
+  </channel>
+</rss>

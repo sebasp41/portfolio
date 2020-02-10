@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/washington-post-police-shootings/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/nba-plotly-bmi-and-dpipm-overview/</loc>
     <lastmod>2019-11-29T00:00:00+00:00</lastmod>
   </url>
@@ -38,19 +43,32 @@
   </url>
   
   <url>
+    <loc>/tags/police/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tableau/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
