@@ -1,0 +1,131 @@
+---
+title: Car Death Rates and Dimensions
+author: Sebastian Pycior
+date: '2020-05-09'
+slug: car-death-rates-and-dimensions
+categories:
+  - r
+  - data visualization
+tags:
+  - r
+  - data visualization
+description: ''
+topics: []
+---
+What makes a car dangerous to drive for a consumer? There are plenty of variables to consider and for this entry in particular I wanted to see if car dimensions were significantly related to death rates in vehicles.
+
+Using R I'm going to review the data at hand, visualize it and then work through a multiple regression analysis. 
+
+# Car Deaths and Car Dimension Data
+I retrieved car death rate data from the [IIHS available by make and model here](https://www.iihs.org/ratings/driver-death-rates-by-make-and-model) for the years 2001-2017 (years '99-'01 are TBD).
+
+The dependent variable that will be used in the subsequent regression analysis is the Overall Death Rate, or "ODR". This is "the number of driver deaths per million registered vehicle years. (A registered vehicle year is one vehicle registered for one year.)" I'll do the same when analyzing Rollover Death Rate, or "RDR".
+
+I searched the car dimensions - length, width, height, and wheelbase - of each car's make and model on the internet, mostly availble via edmunds.com. So for example, searching for the Honda CR-V 2WD wheelbase 2014 edmunds would yield a page [with this data to record](https://www.edmunds.com/honda/cr-v/2014/features-specs/).
+
+To be clear, the data from edmunds was collected manually. For one, I wasn't really going to pay for API access to this data, and secondly, by the time I figured out how to scrape and clean the data from the site, I probably would've finished manually by then anyways. 
+
+After this data entry process, the whole table looks something like: 
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(googlesheets4)
+
+carst<-read_sheet("https://docs.google.com/spreadsheets/d/1WrdBMZRGgC5PuwvsNN1AS3IsDTZ6pXdkLR-1bs4KTok/edit#gid=198633961",   sheet = "Final")
+
+head(carst)
+
+```
+
+I know there's more data that I could analyze here as I collected the data from the IIHS for 2001-17 model years.
+
+I followed along [here as a guide](http://www.sthda.com/english/articles/40-regression-analysis/167-simple-linear-regression-in-r/). Note that it's better to be using geom_smooth() over stat_smooth().
+
+First, let's visualize the data focusing on whether Wheelbase is a significant predictor of ODR. 
+
+```{r, echo=FALSE, message=FALSE}
+library(ggiraph)
+library(ggiraphExtra)
+library(hrbrthemes)
+
+
+carst$tooltip <- c(paste0("Vehicle : ", carst$Vehicle,"\n Year : ", carst$`Model year span`,"\n ODR : ", carst$ODR,"\n Wheelbase (in.) : ", carst$Wheelbase))
+
+p<-ggplot(carst, aes(x = Wheelbase, y = ODR, tooltip = tooltip)) +
+  geom_point_interactive() +
+  labs(title = "Vehicle wheelbase as a predictor of ODR",
+       subtitle = "ODR = -0.3151*Wheelbase + 79.01",
+       x = "Wheelbase",
+       y = "Overall Death Rate", 
+       caption = "Data 2001-2017")+
+  geom_smooth_interactive(aes(tooltip="ODR = -0.3151*Wheelbase + 79.01", data_id="smooth"), method = 'lm')+
+  theme_ipsum()
+
+ggiraph(code = {print(p)}, zoom_max = 1, width = .8)
+
+```
+
+The visualization is enlightening on to main fronts. First, there seems to be somewhat of a nasty hot spot in Overall Death Rate in cars with a Wheelbase between 100 - 112.5 inches. Would it be worthwhile to do a sort of truncated linear regression, cutting out all vehicles above 125 inches? The logic here would be that I'd essentially be looking at mostly all vehicles outside of trucks. This could be of potential benefit to delve into, as it was difficult to discern and match up wheelbase lengths between many truck models on Edmunds and the IIHS data. To be more specific, there are near infinite options that show differing wheelbase lengths. The hotspot then might reveal the danger in cars that have less variety like the Toyota Tacoma or Mazda Miata. 
+Since we're here, could take a stab at it. 
+
+```{r, echo=FALSE, message=FALSE}
+
+
+carst_wb125 <- carst[which(carst$Wheelbase < 125), ]
+
+carst_wb125$tooltip <- c(paste0("Vehicle : ", carst_wb125$Vehicle,"\n Year : ", carst_wb125$`Model year span`,"\n ODR : ", carst_wb125$ODR,"\n Wheelbase (in.) : ", carst_wb125$Wheelbase))
+
+
+
+q<-ggplot(carst_wb125, aes(x = Wheelbase, y = ODR, tooltip = tooltip)) +
+  geom_point_interactive() +
+  labs(title = "Vehicle wheelbase as a predictor of ODR",
+       subtitle = "ODR = -1.627*Wheelbase + 220.13",
+       x = "Wheelbase",
+       y = "Overall Death Rate", 
+       caption = "Data 2001-2017, for Wheelbases < 125 in.")+
+  geom_smooth_interactive(aes(tooltip="ODR = -1.627*Wheelbase + 220.13", data_id="smooth"), method = 'lm')+
+  theme_ipsum()
+
+ggiraph(code = {print(q)}, zoom_max = 1, width = .8)
+
+
+```
+
+
+Secondly, it's a good thing that we don't see death pits being manufactured anymore. A lot of those cars that bubble up over an Overall Death Rate of 150 are vehicles manufactured in the 2001-04 timeline. It'd be useful to aggregate the data across type of vehicle and look at trends over time to get a better understanding on vehicle safety.
+Again, this visualization provides better insight into vehicles that are more dedicated to commuting. The dataset visualized above not only contains the bread-and-butter mainstays in the Camry or the Sentra, but vehicles like the Tacoma, Expedition, and the Quest. How have these vehicles faired over time? 
+
+```{r, echo=FALSE, message=FALSE}
+
+ggplot(carst_wb125, aes(x =`Year Ending` , y = ODR)) +
+  geom_boxplot() +
+  labs(title = "Vehicle safety over time",
+       subtitle = "Divided by periods",
+       x = "Period",
+       y = "Overall Death Rate", 
+       caption = "Data 2001-2017")+
+  theme_ipsum()
+
+
+
+```
+
+The good thing about this boxplot, is that we see the ODR decrease over time. Since 2008, most cars that are manufactured about the same in terms of this particular measurement of safety. What's concerning is that ODR has remained largely the same since 2011. If you're a shopper concerned about safety, then you can rest assured that your used 2010 model year vehicle will likely be safe by all modern standards. In fact, you might look at the new gamut of safety features and declare bollocks. We should all be fans of buying used and this visualization points to that assertion. 
+Now if you remain concerned about public health safety, then this should be an alarm. There's a great number of people that remain unsafe on roads, and the new giant tablets that manufacturers are putting in cars along with crash prevention systems aren't pushing safety to an ODR beneath 20. When life is at stake, no single death should be "good enough."
+
+On to the simple linear regression. We should first note the slight negative correlation between Overall Death Rate and Wheelbase. 
+
+```{r}
+cor(carst_wb125$ODR, carst_wb125$Wheelbase)
+
+```
+
+And finally the model, of which the equation is pasted in the visualization above. 
+```{r}
+
+carst_wb125_model <- lm(ODR ~ Wheelbase, data = carst_wb125)
+summary(carst_wb125_model) 
+```
+The model shows that the relationship between longer Wheelbases resulting in a lower ODR to be significant, but it's by no means precise. So in essence, if someone declares longer Wheelbase vehicles as being safer you can respond: "well in general yes, but it's hard to be totally certain."
+

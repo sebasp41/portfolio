@@ -16,10 +16,11 @@ Political Science, Mathematics Minor
 
 When I'm not working or watching basketball, I'm probably drinking a ton of coffee or watching a good ol' British murder mystery with my wife. I also own a dog named Penny, a yellow lab. We hike, play and eat with her.
 
-I've recently completed a Statistics course in order to get into a respective Master's program.
 
 **Tableau Public**
-I've recently started to upkeep a [visualization dashboard linked here](https://public.tableau.com/profile/sebastian.pycior#!/vizhome/shooting_map/Dashboard1?publish=yes) which simply exhibites Washington Post's database on police shootings in the United States.
+I've recently started to upkeep a [visualization dashboard linked here](https://public.tableau.com/profile/sebastian.pycior#!/vizhome/shooting_map/Dashboard1?publish=yes) which simply exhibits Washington Post's database on police shootings in the United States.
+
+Also, here's a visualization tracking the city of [Seattle's top service requests](https://public.tableau.com/profile/sebastian.pycior#!/vizhome/TopServiceRequests-Seattle/SeattleServiceRequests).
 
 
 **Nylon**

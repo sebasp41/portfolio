@@ -18,10 +18,32 @@ This Tableau visualization using the database compiled by the Washington Post. M
 https://www.washingtonpost.com/graphics/2019/national/police-shootings-2019/
 
 
-I don't have any particular interest in police fatalities, nor have I ever really studied the matter. I originally wanted to just find data that felt alive and held significance. When I came across the WaPo fatal force data, I definitely felt that there was important significance to the dataset.
+Initially, I didn't have any particular interest in police fatalities, nor have I ever really studied the matter. I originally wanted to just find data that felt alive and held significance. When I came across the WaPo fatal force data, I definitely felt that there was important significance to the dataset.
 
 In 2019, over a thousand American citizens fell to brutal force by the police. I hope to bring attention to this issue by visualizing it beyond what WaPo's visualizations currently do.
 
 I'm hoping to have a full on report at some point, but alas that time hasn't come just yet. The following Tableau viz however is something that I'm continually updating to find intricacies in the data. 
 
+And maybe the following will be enough. 
+
 https://public.tableau.com/profile/sebastian.pycior#!/
+
+Features include:
+
+- URL Actions: select on each name under the Running Tally to begin contextual research surrounding the noted fatality. 
+
+- Date Filter: should be filtering on the entire dashboard.
+
+- Estimates: these estimates are basically a rate based on the estimated total of persons within each demographic. So for example, in Tableau notation...
+
+IF [Race] = "B"
+
+THEN [Number of Records]/43840436
+
+END* 1000000
+
+There are an estimated 43840436 black people in the United States. I divided the number of black deaths in the dataset and multiplied that number by a million (for readability).
+
+
+
+
