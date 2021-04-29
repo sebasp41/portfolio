@@ -1,97 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/post/car-death-rates-and-dimensions/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/washington-post-police-shootings/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/nba-plotly-bmi-and-dpipm-overview/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/find-a-quarterback-for-2019/</loc>
-    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/ncaa-mb-categorical-analysis/</loc>
-    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/using-vorp-to-pay-college-basketball-players/</loc>
-    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tools/</loc>
-    <lastmod>2019-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/contact/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/data-visualization/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/police/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/r/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tableau/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/tags/police/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tableau/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/washington-post-police-shootings/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/nba-plotly-bmi-and-dpipm-overview/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/find-a-quarterback-for-2019/</loc>
+    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/ncaa-mb-categorical-analysis/</loc>
+    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/using-vorp-to-pay-college-basketball-players/</loc>
+    <lastmod>2019-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tools/</loc>
+    <lastmod>2019-02-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/contact/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/topics/</loc>
-    <priority>0</priority>
   </url>
-  
 </urlset>

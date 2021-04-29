@@ -1,11 +1,10 @@
-theme = "blackburn"
+theme = "Anatole"
 baseURL = "/"
 languageCode = "en-us"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 baseurl = "/"
-title = "Sebastian Pycior"
-author = "Sebastian Pycior"
+
 # Shown in the side menu
 copyright = "&copy; 2016. All rights reserved."
 canonifyurls = true
@@ -17,7 +16,9 @@ paginate = 10
 
 [params]
   # Shown in the home page
-  subtitle = "Trying to learn something about statistics, using R."
+  title = "Sebastian Pycior"
+  author = "Sebastian Pycior"
+  description = "Currently working as a Salesforce Systems Specialist for Tableau, trying to learn something about statistics, using R, Python, and Tableau."
   brand = "Sebasp41"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
@@ -27,6 +28,7 @@ paginate = 10
   # (relative to /static folder)
   custom_css = ["css/my.css"]
   custom_js = ["js/my.js"]
+  profilePicture = "profilepic.jpg"
 
   [params.piwikAnalytics]
     siteid = 2
